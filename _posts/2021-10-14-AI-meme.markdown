@@ -1,0 +1,7 @@
+---
+layout: default
+title: 🔥 TOP ML & AI books ;-)
+---
+
+![image tooltip here](../assets/images/ai_if_else.jpg)
+![image tooltip here](../assets/images/DL_screw_theory.jpg)
