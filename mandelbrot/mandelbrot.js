@@ -56,17 +56,26 @@ class WebGLController {
             this.initTranslation(this.#translation);
         });
         this.#canvas.addEventListener("wheel", e => {
-           const scaleChange = 0.1;
+            // FIXME: get rid of magic numbers here.
+            const minScale = 0.2;
+            const maxScale = 1.5;
+            const scaleChange = 1.05;
+
             if (event.deltaY > 0)
             {
                 console.log("scrolling down!");
-                scale -= scaleChange;
+                scale /= scaleChange;
             }
             else if (event.deltaY < 0)
             {
                 console.log("scrolling up!");
-                scale += scaleChange;
+                scale *= scaleChange;
             }
+
+            if (scale < minScale)
+                scale = minScale;
+            else if (scale > maxScale)
+                scale = maxScale;
 
             {
                 const location = this.#gl.getUniformLocation(this.#program, "uScale");

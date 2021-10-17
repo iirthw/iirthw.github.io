@@ -71,13 +71,30 @@ title: Publications
 
       vec4 mandelbrot()
       {
+          // Current point in homogenous coordinates
+          vec3 currPoint = 
+            vec3(gl_FragCoord.x / uScreenRes.x, gl_FragCoord.y / uScreenRes.y, 1.0);
+
+          // Scale matrix
+          mat3 S;
+          S[0] = vec3(uScale, 0.0, 0.0);
+          S[1] = vec3(0.0, uScale, 0.0);
+          S[2] = vec3(0.0, 0.0, 1.0);
+
+          vec3 newCurrPoint = S * currPoint;
+
           vec2 z = vec2(0.0, 0.0);
-          float centerX = 0.5- uTranslation.x;
-          float centerY = 0.5 - uTranslation.y;
-          vec2 c = vec2(
-            uScale * (gl_FragCoord.x / uScreenRes.x) - centerX, 
-            uScale * (gl_FragCoord.y / uScreenRes.y) - centerY
-            );
+          // float centerX = 0.5 - uTranslation.x;
+          // float centerY = 0.5 - uTranslation.y;
+          // vec2 c = vec2(
+          //  uScale * (gl_FragCoord.x / uScreenRes.x) - centerX, 
+          //  uScale * (gl_FragCoord.y / uScreenRes.y) - centerY
+          //  );
+
+          vec3 cTemp = vec3(newCurrPoint.x + uTranslation.x, 
+            newCurrPoint.y + uTranslation.y, 1.0);
+          
+          vec2 c = newCurrPoint.xy + vec2(uTranslation.x, uTranslation.y);
 
           // specific case for the origin of the coordinate system
           // const float eps = 0.01;
