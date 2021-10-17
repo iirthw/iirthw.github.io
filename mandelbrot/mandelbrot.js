@@ -7,7 +7,7 @@
 // Could not manage to keep scale a private attrib inside WebGLcontroller
 // since we had register wheel event listener to the canvas, and canvas could
 // not access and change the scale property from WebGLController.
-var scale = 1.0;
+var scale = 2.0;
 
 class WebGLController {
     #canvas
@@ -100,7 +100,7 @@ class WebGLController {
 
         // View-related stuff
         // TODO: needs refactoring
-        this.#translation = new Float32Array([0.0, 0.0]);
+        this.#translation = new Float32Array([-1.5, -1.0]);
         this.#fromPos = new Float32Array([0.0, 0.0]);
         this.#toPos = new Float32Array([0.0, 0.0]);
         this.#isMouseMoved = false;
