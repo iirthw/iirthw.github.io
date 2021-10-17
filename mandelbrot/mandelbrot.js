@@ -47,10 +47,15 @@ class WebGLController {
         });
         
         this.#canvas.addEventListener("mouseup", e => {
+            const slowDownCoefficient = 0.5;
             this.#toPos[0] = event.pageX;
             this.#toPos[1] = event.pageY;
-            const deltaX = (this.#toPos[0] - this.#fromPos[0]) / this.#canvas.width;
-            const deltaY = (this.#toPos[1] - this.#fromPos[1]) / this.#canvas.height;
+
+            const deltaX = slowDownCoefficient * (this.#toPos[0] - this.#fromPos[0])
+                / this.#canvas.width;            
+            const deltaY = slowDownCoefficient * (this.#toPos[1] - this.#fromPos[1])
+                / this.#canvas.height;
+
             this.#translation[0] = this.#translation[0] - deltaX;
             this.#translation[1] = this.#translation[1] + deltaY;
             this.initTranslation(this.#translation);
