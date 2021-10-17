@@ -63,7 +63,7 @@ class WebGLController {
         this.#canvas.addEventListener("wheel", e => {
             // FIXME: get rid of magic numbers here.
             const minScale = 0.2;
-            const maxScale = 1.5;
+            const maxScale = 3.0;
             const scaleChange = 1.05;
 
             if (event.deltaY > 0)
