@@ -47,7 +47,7 @@ class WebGLController {
         });
         
         this.#canvas.addEventListener("mouseup", e => {
-            const slowDownCoefficient = 0.5;
+            const slowDownCoefficient = 0.5 * scale;
             this.#toPos[0] = event.pageX;
             this.#toPos[1] = event.pageY;
 
