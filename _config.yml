@@ -104,7 +104,7 @@ author:
   name             : "Vasyl Mykhalchuk, PhD"
   avatar           : /assets/images/cat0.jpg # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "Yet another computer scientist 🤓 building machine learning stuff for computer vision and graphics."
-  location         : "WGS84 Ellispoid 🌍"
+  location         : "WGS84 Ellipsoid 🌍"
   email            :
   links:
     - label: "Email"
