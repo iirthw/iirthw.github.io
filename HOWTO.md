@@ -1,6 +1,6 @@
 # HOWTO
 
-## HOW TO GET STARTED 
+## Get started with the project on a local machine
 
 ### INSTALL gem, jekyll, bundler and minimal-mistakes-jekyll
 0. Install Ruby if needed:
